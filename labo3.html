@@ -5,55 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labo 3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
 
         body {
-            display: flex; 
+            display: grid; 
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: linear-gradient(90deg,white 0%, #ff6f3c 50%, black 100% );
         }
 
         .contenant-haut { 
             display: grid;
-            grid-template-areas: "a b"        
-             grid-template-columns: 1fr;
-             grid-template-rows: 20% 60% 20%;    
-             height: 75%;
-             width: 75%;
+            grid-template-areas: "a b";        
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;    
+            height: 30%;
+            width: 100%;
+            grid-area: a;
+            margin-bottom: 20px; 
+            box-sizing: border-box;
+                    
         }
-
-
-        .contenant-image { 
+        #panneau-principal {
             display: grid;
-            grid-template-areas: "a b c d"
-                                 "a b c d"
-                                 "a b c d"
-                                 "a b c d";
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 10px;    
-            height: 75%;
-            width: 75%;
+            grid-template-areas: "a"
+                                 "b"
+                                 "c"
+                                 "d";
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        
+        }
+        
+        .contenant-images .item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50px;
+            border-width: 40%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
+        .contenant-images .item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.3); ;
+        }
+
+        #imge:hover{
+            transform: scale(1.1);
+        }
+
+        .contenant-images { 
+            display: grid;
+            grid-template-areas: "a a a a"
+                                 "a a a a"
+                                 "a a a a"
+                                 "a a a a";
+            grid-template-columns: repeat(4, 1fr);  
+            grid-template-rows: repeat(4, 1fr);
+            height: 60%;
+            width: 100%;
+            gap: 30px;
+            margin-bottom: 20px;
+            grid-area: b;
+            justify-content: center;
+            align-items: center;
+ 
+        }
         .contenant-box { 
             display: grid;
-            grid-template-areas: "box box box"
-            grid-template-columns: repeat(10, 20%);
-            grid-template-rows: 20% 60% 20%;    
-            
+            grid-template-areas: "a a a";
+            grid-template-columns: 1fr 1fr 1fr;  
+            gap: 10px;
+            margin-bottom: 20px;
+            grid-area: c;
         }
-        
+             
         .contenant-footer { 
             display: grid;
-            grid-template-areas: "footer"
+            grid-template-areas: "a";
             grid-template-columns: 1fr;
-            grid-template-rows: 100%;    
-            
+            height: 10vh; 
+            width: 100%; 
+            grid-area: d;
+            background-color: aquamarine;
         }
-
-        
 
         .item { 
             display: flex;
@@ -61,67 +101,325 @@
             border: 1px solid black;
             justify-content: center;
             align-items: center;
+            height: 100px;
             width: 100%;
+            font-size: 30px;
+        
+            
         }
 
-        #logo { 
+        #logo
+        {
+            object-fit: cover;
             grid-area: a;
+            width:100%;
+            height: 100%;
+            
         }
 
-        #nav { 
-            grid-area: b;
-            width: 50%;
-            height:50%;
+        #imge{
+            width:100%;
+            height: 100%;
+        
         }
 
-        #c { 
-            grid-area: c;
+        #button{
+        background-color: black;
         }
 
-        #d { 
-            grid-area: d;
+        #bloc1 {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
         }
 
-        #e { 
-            grid-area: e;
+        #bloc2 {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
         }
 
+        #bloc3 {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+    #nav{
+        width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: black;
+    }
+
+    .contenant-footer > * {
+        background-color: aquamarine;
+    }
 
     </style>
 </head>
+
 <body>
-    <div class="contenant-haut">
-        <div class="item" id="logo" img src="logo.png">Logo</div>
-        <div class = "item">Navigation</div>
-    </div>
     
-    <div class= "contenant-images">
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>  
-        <div class = "item">Images</div>
-        <div class = "item">Images</div>
-
-    </div>    
+    <div id="panneau-principal">
+        <div class="contenant-haut">
+            <div class="item" >
+                <img src="logo.png" id="logo" alt = "Logo">
+            </div>
+            <div class = "item" id="nav">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                    </a>
+            
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                      <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+                      <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                      <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+                    </ul>
+            
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                      <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                    </form>
+            
+                    <div class="text-end">
+                      <button type="button" class="btn btn-outline-light me-2">Login</button>
+                      <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
+                  </div>
+               
+            
+            </div>
+        </div>
     
-    <div class = "contenant-box">
-        <div class = "item">Bloc 1</div>
-        <div class = "item">Bloc 2</div>
-        <div class = "item">Bloc 3</div>
-        
+    
+    
+        <div class= "contenant-images">
+            <div class = "item">
+                <img src="https://i0.wp.com/nicolesy.com/wp-content/uploads/2011/04/nicolesy-food-6490_Edit_131011.jpg?fit=2000%2C1333&ssl=1" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://www.cuisinart.com/globalassets/catalog/appliances/food-processors/complete-chef-cooking-food-processor/tacosamericanos_ss1262600101.jpg" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/OIP.PdB3Jy4iGR7Fg9A2-NkLKwAAAA?rs=1&pid=ImgDetMain" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://static.fanpage.it/wp-content/uploads/sites/22/2020/09/iStock-618214356.jpg" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://thefastrecipe.com/wp-content/uploads/2021/04/fried-spaghetti-4.jpg" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/OIP.k53y3LnSF59Iuzc1QbNeFAHaE8?rs=1&pid=ImgDetMain" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://snippetsofparis.com/wp-content/uploads/2020/10/raclette-1.jpg" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/R.aeba7ef3169700b675cdbdbd5e33dada?rik=0thHo7kuCm2IbA&riu=http%3a%2f%2ficicestlesudouest.com%2fwp-content%2fuploads%2f2016%2f12%2f3aa4c00e-0c68-4909-b525-6afe7bc73d9b.jpg&ehk=k6DDwdCxT%2bd%2bwZJWcINuJNN4d4Vjv%2bYlIYOvuGI%2fK64%3d&risl=&pid=ImgRaw&r=0" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/OIP.a6cdgBZmgv3j6HzXqffa3wHaE7?rs=1&pid=ImgDetMain" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://i.gzn.jp/img/2020/11/13/pretty-food-perceived-healthy/00_m.jpg" id="imge" alt = "images"></src>
+            </div>  
+            <div class = "item">
+                <img src="https://adamfirthphotography.com/wp-content/uploads/2016/11/A9O4958.jpg" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://sortedmedia.com.au/wp-content/uploads/2020/06/DSC0903-scaled.jpg" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/R.50b7923e224c6d0db0cb2bb1836b319e?rik=1zRqD4HgBprsZw&riu=http%3a%2f%2fcdn.pratico-pratiques.com%2fapp%2fuploads%2fsites%2f3%2f2018%2f08%2f20194338%2fpate-chinois-reinvente-francois-leveillee.jpeg&ehk=6gVmQPiYteTf3UjjCOnGT3AZeyUjw3THvmv175nr0zc%3d&risl=&pid=ImgRaw&r=0" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/R.8780205ef0ab51d8775055bb15ee19f4?rik=b633ooEy2sGasQ&riu=http%3a%2f%2fwww.maximumwall.com%2fwp-content%2fuploads%2f2017%2f01%2fwallpaper-image-nourriture-malbouffe-17.jpg&ehk=1m7IlH5WLOQdZO%2bbdmIRto9qQt9iUA6x6lcxXtE6t8M%3d&risl=&pid=ImgRaw&r=0" id="imge" alt = "images"></src>
+            </div>  
+            <div class = "item">
+                <img src="https://th.bing.com/th/id/OIP.LJI6M48RjztfcBhKgucsqQHaE9?w=3872&h=2592&rs=1&pid=ImgDetMain" id="imge" alt = "images"></src>
+            </div>
+            <div class = "item">
+                <img src="https://zahramediagroup.com/wp-content/uploads/2021/09/Blog-september.jpg" id="imge" alt = "images"></src>
+            </div>
+
+        </div>    
+    
+        <div class = "contenant-box">
+            <div class = "item">
+                <ul class="dropdown-menu d-block position-static mx-0 shadow w-220px" id="bloc1"data-bs-theme="light">
+                    <li>
+                      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#files"></use></svg>
+                        Documents
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#image-fill"></use></svg>
+                        Photos
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#film"></use></svg>
+                        Movies
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#music-note-beamed"></use></svg>
+                        Music
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#joystick"></use></svg>
+                        Games
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      <a class="dropdown-item dropdown-item-danger d-flex gap-2 align-items-center" href="#">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#trash"></use></svg>
+                        Trash
+                      </a>
+                    </li>
+                  </ul>
+            </div>
+            <div class = "item"><div class="dropdown-menu d-block position-static p-2 mx-0 shadow rounded-3 w-340px" data-bs-theme="dark" id = "bloc2">
+                <div class="d-grid gap-1">
+                  <div class="cal">
+                    <div class="cal-month">
+                      <button class="btn cal-btn" type="button">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#arrow-left-short"></use></svg>
+                      </button>
+                      <strong class="cal-month-name">June</strong>
+                      <select class="form-select cal-month-name d-none">
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option selected="" value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                      <button class="btn cal-btn" type="button">
+                        <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-short"></use></svg>
+                      </button>
+                    </div>
+                    <div class="cal-weekdays text-body-secondary">
+                      <div class="cal-weekday">Sun</div>
+                      <div class="cal-weekday">Mon</div>
+                      <div class="cal-weekday">Tue</div>
+                      <div class="cal-weekday">Wed</div>
+                      <div class="cal-weekday">Thu</div>
+                      <div class="cal-weekday">Fri</div>
+                      <div class="cal-weekday">Sat</div>
+                    </div>
+                    <div class="cal-days">
+                      <button class="btn cal-btn" disabled="" type="button">30</button>
+                      <button class="btn cal-btn" disabled="" type="button">31</button>
+            
+                      <button class="btn cal-btn" type="button">1</button>
+                      <button class="btn cal-btn" type="button">2</button>
+                      <button class="btn cal-btn" type="button">3</button>
+                      <button class="btn cal-btn" type="button">4</button>
+                      <button class="btn cal-btn" type="button">5</button>
+                      <button class="btn cal-btn" type="button">6</button>
+                      <button class="btn cal-btn" type="button">7</button>
+            
+                      <button class="btn cal-btn" type="button">8</button>
+                      <button class="btn cal-btn" type="button">9</button>
+                      <button class="btn cal-btn" type="button">10</button>
+                      <button class="btn cal-btn" type="button">11</button>
+                      <button class="btn cal-btn" type="button">12</button>
+                      <button class="btn cal-btn" type="button">13</button>
+                      <button class="btn cal-btn" type="button">14</button>
+            
+                      <button class="btn cal-btn" type="button">15</button>
+                      <button class="btn cal-btn" type="button">16</button>
+                      <button class="btn cal-btn" type="button">17</button>
+                      <button class="btn cal-btn" type="button">18</button>
+                      <button class="btn cal-btn" type="button">19</button>
+                      <button class="btn cal-btn" type="button">20</button>
+                      <button class="btn cal-btn" type="button">21</button>
+            
+                      <button class="btn cal-btn" type="button">22</button>
+                      <button class="btn cal-btn" type="button">23</button>
+                      <button class="btn cal-btn" type="button">24</button>
+                      <button class="btn cal-btn" type="button">25</button>
+                      <button class="btn cal-btn" type="button">26</button>
+                      <button class="btn cal-btn" type="button">27</button>
+                      <button class="btn cal-btn" type="button">28</button>
+            
+                      <button class="btn cal-btn" type="button">29</button>
+                      <button class="btn cal-btn" type="button">30</button>
+                      <button class="btn cal-btn" type="button">31</button>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+            <div class = "item"><div class="dropdown-menu position-static d-flex flex-column flex-lg-row align-items-stretch justify-content-start p-3 rounded-3 shadow-lg" data-bs-theme="dark" id = "bloc3">
+                <nav class="col-lg-8">
+                  <ul class="list-unstyled d-flex flex-column gap-2">
+                    <li>
+                      <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-2 px-3 lh-sm text-start">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#image-fill"></use></svg>
+                        <div>
+                          <strong class="d-block">Main product</strong>
+                          <small>Take a tour through the product</small>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-2 px-3 lh-sm text-start">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#music-note-beamed"></use></svg>
+                        <div>
+                          <strong class="d-block">Another product</strong>
+                          <small>Explore this other product we offer</small>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-2 px-3 lh-sm text-start">
+                        <svg class="bi" width="24" height="24"><use xlink:href="#question-circle"></use></svg>
+                        <div>
+                          <strong class="d-block">Support</strong>
+                          <small>Get help from our support crew</small>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <div class="d-none d-lg-block vr mx-4 opacity-10">&nbsp;</div>
+                <hr class="d-lg-none">
+                <div class="col-lg-auto pe-3">
+                  <nav>
+                    <ul class="d-flex flex-column gap-2 list-unstyled small">
+                      <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">Documentation</a></li>
+                      <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">Use cases</a></li>
+                      <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">API status</a></li>
+                      <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">Partners</a></li>
+                      <li><a href="#" class="link-offset-2 link-underline link-underline-opacity-25 link-underline-opacity-75-hover">Resources</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div></div>
+        </div>
+
+        <div class = "contenant-footer">
+            <div class = "item">
+                <a href = "https://github.com/ashwiniaxo/TCH056-LABO3" target = "_blank">GitHub</a>
+            </div>
+        </div>
 
     </div>
-    <div class = "footer">
-
-        <div class = "item"></div 
-    </div>
-
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>
