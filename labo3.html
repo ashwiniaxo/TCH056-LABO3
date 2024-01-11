@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo 3</title>
+
+    <style>
+
+        body {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .contenant-haut { 
+            display: grid;
+            grid-template-areas: "a b"        
+             grid-template-columns: 1fr;
+             grid-template-rows: 20% 60% 20%;    
+             height: 75%;
+             width: 75%;
+        }
+
+
+        .contenant-image { 
+            display: grid;
+            grid-template-areas: "a b c d"
+                                 "a b c d"
+                                 "a b c d"
+                                 "a b c d";
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 10px;    
+            height: 75%;
+            width: 75%;
+        }
+
+        .contenant-box { 
+            display: grid;
+            grid-template-areas: "box box box"
+            grid-template-columns: repeat(10, 20%);
+            grid-template-rows: 20% 60% 20%;    
+            
+        }
+        
+        .contenant-footer { 
+            display: grid;
+            grid-template-areas: "footer"
+            grid-template-columns: 1fr;
+            grid-template-rows: 100%;    
+            
+        }
+
+        
+
+        .item { 
+            display: flex;
+            background-color: lightgray;
+            border: 1px solid black;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #logo { 
+            grid-area: a;
+        }
+
+        #nav { 
+            grid-area: b;
+            width: 50%;
+            height:50%;
+        }
+
+        #c { 
+            grid-area: c;
+        }
+
+        #d { 
+            grid-area: d;
+        }
+
+        #e { 
+            grid-area: e;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="contenant-haut">
+        <div class="item" id="logo" img src="logo.png">Logo</div>
+        <div class = "item">Navigation</div>
+    </div>
+    
+    <div class= "contenant-images">
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>  
+        <div class = "item">Images</div>
+        <div class = "item">Images</div>
+
+    </div>    
+    
+    <div class = "contenant-box">
+        <div class = "item">Bloc 1</div>
+        <div class = "item">Bloc 2</div>
+        <div class = "item">Bloc 3</div>
+        
+
+    </div>
+    <div class = "footer">
+
+        <div class = "item"></div 
+    </div>
+
+</body>
+</html>
